@@ -39,7 +39,6 @@ public class AccountActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         AccountLayoutAdapter homeLayoutAdapter = new AccountLayoutAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(homeLayoutAdapter);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

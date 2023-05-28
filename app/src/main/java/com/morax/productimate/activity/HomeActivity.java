@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +25,7 @@ import com.morax.productimate.adapter.HomeLayoutAdapter;
 public class HomeActivity extends AppCompatActivity {
 
     private boolean isNightMode = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,20 +61,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void logoutUser(View view) {
-        SharedPreferences userPrefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
-        userPrefs.edit().clear().apply();
         Intent intent = new Intent(this, AccountActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        SharedPreferences userPrefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        userPrefs.edit().clear().apply();
     }
 
-    public void changeMode(View view) {
-        if (isNightMode) {
+    public void changeMode(View view){
+        if(isNightMode)
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
+        else
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-
         isNightMode = !isNightMode;
     }
 

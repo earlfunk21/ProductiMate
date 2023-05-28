@@ -155,6 +155,17 @@ public class TaskFragment extends Fragment {
             }
         }).attachToRecyclerView(rvTask);
 
+
+        CheckBox cbFilterTask = view.findViewById(R.id.cb_task_done_filter);
+        cbFilterTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                taskAdapter.setTaskList(taskDao.getTaskByUserIdAndDone(user_id, b));
+
+
+            }
+        });
+
         FloatingActionButton fabTask = view.findViewById(R.id.fab_task);
         fabTask.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,8 +197,9 @@ public class TaskFragment extends Fragment {
                         String description = Objects.requireNonNull(etDescription.getText()).toString();
                         Task task = new Task(title, date, description, user_id);
                         taskDao.insert(task);
-                        taskList.add(0, task);
-                        taskAdapter.notifyItemInserted(0);
+                        taskAdapter.setTaskList(taskDao.getTaskByUserId(user_id));
+                        cbFilterTask.setChecked(false);
+                        bottomSheetDialog.cancel();
                     }
                 });
 
@@ -195,15 +207,6 @@ public class TaskFragment extends Fragment {
             }
         });
 
-        CheckBox cbFilterTask = view.findViewById(R.id.cb_task_done_filter);
-        cbFilterTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                taskAdapter.setTaskList(taskDao.getTaskByUserIdAndDone(user_id, b));
-
-
-            }
-        });
         Button btnDisplayAll = view.findViewById(R.id.btn_display_all);
         btnDisplayAll.setOnClickListener(new View.OnClickListener() {
             @Override
