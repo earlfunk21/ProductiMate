@@ -2,13 +2,23 @@ package com.morax.productimate.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.morax.productimate.R;
+import com.morax.productimate.adapter.NoteAdapter;
+import com.morax.productimate.database.AppDatabase;
+import com.morax.productimate.database.dao.NoteDao;
+import com.morax.productimate.database.entity.Note;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +72,16 @@ public class NoteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_note, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        NoteDao noteDao = AppDatabase.getInstance(requireContext()).noteDao();
+        List<Note> noteList = new ArrayList<>(noteDao.getNotes());
+        RecyclerView rvNote = view.findViewById(R.id.rv_note);
+        NoteAdapter noteAdapter = new NoteAdapter(requireContext(), noteList);
+        rvNote.setAdapter(noteAdapter);
+
     }
 }

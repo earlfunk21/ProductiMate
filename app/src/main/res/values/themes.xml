@@ -6,4 +6,19 @@
     </style>
 
     <style name="Theme.ProductiMate" parent="Base.Theme.ProductiMate" />
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/negative</item>
+        <item name="buttonBarPositiveButtonStyle">@style/positive</item>
+    </style>
+
+    <style name="positive">
+        <item name="android:textColor">@color/primary500</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="negative">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
 </resources>
