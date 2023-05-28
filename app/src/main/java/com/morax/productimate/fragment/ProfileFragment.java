@@ -2,19 +2,27 @@ package com.morax.productimate.fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.morax.productimate.R;
+import com.morax.productimate.activity.AccountActivity;
+import com.morax.productimate.activity.HomeActivity;
+import com.morax.productimate.activity.MainActivity;
 import com.morax.productimate.database.AppDatabase;
 import com.morax.productimate.database.dao.UserDao;
 import com.morax.productimate.database.entity.User;
@@ -76,6 +84,7 @@ public class ProfileFragment extends Fragment {
     private UserDao userDao;
     private User user;
     private SharedPreferences userPrefs;
+    private boolean nightMode;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -91,4 +100,8 @@ public class ProfileFragment extends Fragment {
         String fullName = user.firstname + " " + user.lastname;
         tvFullName.setText(fullName);
     }
+
+
+
+
 }

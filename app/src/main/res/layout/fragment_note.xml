@@ -26,10 +26,10 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/btn_add_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Note"
-                android:onClick="addNote"/>
+                android:text="Add Note"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

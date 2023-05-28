@@ -60,10 +60,10 @@
                 android:id="@+id/tv_full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Earl Nobe"
                 android:textColor="@color/primary900"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Earl Nobe" />
 
         </LinearLayout>
 
@@ -84,12 +84,21 @@
                 android:textColor="@color/white" />
 
             <Button
+                android:id="@+id/btn_logout_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primary500"
-                android:onClick="logoutUser"
                 android:text="Logout"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:onClick="logoutUser"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary500"
+                android:text="Change Mode / Theme"
+                android:textColor="@color/white"
+                android:onClick="changeMode"/>
 
         </LinearLayout>
     </LinearLayout>

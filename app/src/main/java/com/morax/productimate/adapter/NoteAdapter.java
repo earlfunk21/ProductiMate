@@ -32,6 +32,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         this.noteList = noteList;
     }
 
+    public Note getNoteByPosition(int position){
+        return noteList.get(position);
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

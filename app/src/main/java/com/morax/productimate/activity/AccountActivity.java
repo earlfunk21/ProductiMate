@@ -1,6 +1,7 @@
 package com.morax.productimate.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -35,11 +36,10 @@ public class AccountActivity extends AppCompatActivity {
         viewPager2 = findViewById(R.id.vp2_account);
         TabLayout tabLayout = findViewById(R.id.tl_account);
         viewPager2.setUserInputEnabled(false);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         AccountLayoutAdapter homeLayoutAdapter = new AccountLayoutAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(homeLayoutAdapter);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
