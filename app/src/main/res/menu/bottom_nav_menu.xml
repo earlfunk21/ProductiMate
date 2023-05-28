@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnv_note"
+        android:icon="@drawable/icon_task_list"
+        android:title="Notes"/>
+
+
+    <item
+        android:id="@+id/bnv_profile"
+        android:icon="@drawable/icon_person"
+        android:title="Profile"/>
+
+    <item
+        android:id="@+id/bnv_task"
+        android:icon="@drawable/icon_task_list"
+        android:title="Tasks"/>
+
+</menu>
