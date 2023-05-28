@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">@android:color/darker_gray</color>
+    <color name="background">@color/black</color>
+    <color name="textColor">@color/white</color>
+
+    <color name="primary000">#190e00</color>
+    <color name="primary100">#4c2901</color>
+    <color name="primary200">#7e4501</color>
+    <color name="primary300">#b16002</color>
+    <color name="primary400">#e37b02</color>
+    <color name="primary500">#fd951c</color>
+    <color name="primary600">#fdad4e</color>
+    <color name="primary700">#fec481</color>
+    <color name="primary800">#fedcb3</color>
+    <color name="primary900">#fff3e6</color>
+</resources>

@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">@android:color/darker_gray</color>
+    <color name="background">@color/white</color>
+    <color name="textColor">@color/black</color>
+
+    <color name="primary000">#fff3e6</color>
+    <color name="primary100">#fedcb3</color>
+    <color name="primary200">#fec481</color>
+    <color name="primary300">#fdad4e</color>
+    <color name="primary400">#fd951c</color>
+    <color name="primary500">#e37b02</color>
+    <color name="primary600">#b16002</color>
+    <color name="primary700">#7e4501</color>
+    <color name="primary800">#4c2901</color>
+    <color name="primary900">#190e00</color>
 </resources>
