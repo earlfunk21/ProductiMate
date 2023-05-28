@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.morax.productimate.R;
-import com.morax.productimate.activity.HomeActivity;
 import com.morax.productimate.database.AppDatabase;
 import com.morax.productimate.database.dao.NoteDao;
 import com.morax.productimate.database.entity.Note;
