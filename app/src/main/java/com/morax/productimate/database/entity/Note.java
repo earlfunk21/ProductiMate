@@ -10,9 +10,11 @@ public class Note {
 
     public String title;
     public String content;
+    public long userId;
 
-    public Note(String title, String content) {
+    public Note(String title, String content, long userId) {
         this.title = title;
         this.content = content;
+        this.userId = userId;
     }
 }

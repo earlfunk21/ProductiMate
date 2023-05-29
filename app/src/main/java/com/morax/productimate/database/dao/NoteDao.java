@@ -21,6 +21,9 @@ public interface NoteDao {
     @Query("SELECT * FROM Note WHERE id = :id")
     Note getNoteById(long id);
 
+    @Query("SELECT * FROM Note WHERE userId = :userId")
+    List<Note> getNoteByUserId(long userId);
+
     @Update
     void update(Note note);
 

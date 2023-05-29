@@ -1,6 +1,9 @@
 package com.morax.productimate.fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -86,7 +89,9 @@ public class NoteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NoteDao noteDao = AppDatabase.getInstance(requireContext()).noteDao();
-        List<Note> noteList = new ArrayList<>(noteDao.getNotes());
+        SharedPreferences userPrefs = requireContext().getSharedPreferences("userPrefs", MODE_PRIVATE);
+        long user_id = userPrefs.getLong("user_id", 0);
+        List<Note> noteList = new ArrayList<>(noteDao.getNoteByUserId(user_id));
         RecyclerView rvNote = view.findViewById(R.id.rv_note);
         NoteAdapter noteAdapter = new NoteAdapter(requireContext(), noteList);
         rvNote.setAdapter(noteAdapter);
@@ -151,7 +156,7 @@ public class NoteFragment extends Fragment {
                             return;
                         }
                         NoteDao noteDao = AppDatabase.getInstance(requireContext()).noteDao();
-                        Note note = new Note(title, content);
+                        Note note = new Note(title, content, user_id);
                         noteDao.insert(note);
                         noteList.add(0, note);
                         noteAdapter.notifyItemInserted(0);
